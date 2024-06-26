@@ -163,7 +163,6 @@ async def main(bot: Bot, event: Event, state: T_State):
             group_id=event.group_id if isinstance(event, GroupMessageEvent) else 0,
             messages=msgs,
         )
-        acg_trace.skip() # 发送成功就跳过单条消息发送
     except ActionFailed as e:
         logger.warning(e)
 
