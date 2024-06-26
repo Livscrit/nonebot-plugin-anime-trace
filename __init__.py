@@ -144,7 +144,7 @@ async def main(bot: Bot, event: Event, state: T_State):
     try:
         nickname = config.nickname[0]
     except:
-        nickname = "anime trace"
+        nickname = "animetrace"
     try:
         msgs = [
             {
