@@ -103,7 +103,7 @@ async def main(bot: Bot, event: Event, state: T_State):
     try:
         async with AsyncClient(trust_env=False, proxies=None) as client:
             res = await client.post(
-                url=url, headers=headers, data=None, files=files, timeout=30
+                url=url, headers=headers, data=None, files=files, timeout=60
             )
             content = json.loads(res.content)
     except Exception as e:
@@ -121,7 +121,7 @@ async def main(bot: Bot, event: Event, state: T_State):
         await acg_trace.finish(f"没有识别到任何角色\ncontent:{content}", at_sender=True)
 
     # 构造消息
-    res_start_msg = Message(f"共识别到{char_nums}个角色\n更多模型请访问:https://ai.animedb.cn")
+    res_start_msg = Message(f"共识别到{char_nums}个角色")
     message_list = [res_start_msg]
     mode = state["mode"]
     for item in content["data"]:
