@@ -167,5 +167,5 @@ async def main(bot: Bot, event: Event, state: T_State):
         logger.warning(e)
 
     # 单条消息发送
-    if msg in message_list:
+    for msg in message_list:
         await acg_trace.send(msg)
