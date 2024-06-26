@@ -160,7 +160,7 @@ async def main(bot: Bot, event: Event, state: T_State):
         # 发送转发消息
         await bot.send_forward_msg(
             user_id=event.user_id if isinstance(event, PrivateMessageEvent) else 0,
-            group_id=event.group_id if isinstance(event, PrivateMessageEvent) else 0,
+            group_id=event.group_id if isinstance(event, GroupMessageEvent) else 0,
             messages=msgs,
         )
     except ActionFailed as e:
