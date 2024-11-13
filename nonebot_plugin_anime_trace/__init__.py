@@ -147,13 +147,10 @@ async def main(bot: Bot, event: Event, state: T_State):
         msg_txt = f"该角色有{may_num}种可能\n"
         for i in range(may_num):
             name = char[i]["name"]
-            q = quote(name)
             msg_txt += (
                 f"\n{i+1}\n"
                 f"角色:{name}\n"
                 f"来自{mode}:{char[i]['cartoonname']}\n"
-                f"bing搜索:www.bing.com/images/search?q={q}\n"
-                f"萌娘百科:zh.moegirl.org.cn/index.php?search={q}\n"
             )
 
         message = msg_txt + MessageSegment.image(img_bytes.getvalue())
